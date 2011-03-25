@@ -1,5 +1,6 @@
 // Java Bytecode-Hex lookup table
-// Seth Hoenig 2011
+// Copyright (C) 2011 Seth Hoenig
+// See README file for full copyright notice
 // University of Texas at Austin
 
 package main
