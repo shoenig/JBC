@@ -22,21 +22,20 @@ func main() {
 
 func process(s string, int2bc map[int]string, bc2int map[string]int) {
     if len(s) <= 2 {
+        // try to do hex code, cause it must be a hex code...
         var hexval int
+        var instr string
         _, err := fmt.Sscanf(s, "%x", &hexval)
-        if err == nil {  // str is hex number
-           instr := int2bc[hexval]
-           if instr == "" {
-                result := bc2int[s]
-                fmt.Printf("%s\t%s\n", s, int2hex(result))
-           } else {
-               fmt.Printf("%s\t0X%X\n", instr, hexval)
-           }
+        if err == nil {
+            instr = int2bc[hexval]
         }
-    }else {
+        if len(instr) > 0 {
+            fmt.Printf("%s\t0X%X\n", instr, hexval)
+        }
+    } else {
         result := bc2int[s]
         fmt.Printf("%s\t%s\n", s, int2hex(result))
-    }
+   }
 }
 
 func int2hex(i int) string {
